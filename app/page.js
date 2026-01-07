@@ -38,6 +38,7 @@ export default function Home() {
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className='w-full rounded-lg border h-10 box-border py-3 pl-12 pr-4 text-sm ring-gray-400 focus:outline-none focus:border-0 focus:ring-2 focus:ring-blue-400'
                     />
+                    <div></div>
                 </div>
             </div>
         </div>
