@@ -4,9 +4,13 @@ import { FiFilter } from 'react-icons/fi'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { IoSearchOutline } from 'react-icons/io5'
+import { messages } from './dummyObj/messages'
+import { MessageList } from './components/MessageList'
+import { MessageDetail } from './components/MessageDetail'
 
 export default function Home() {
     const [searchQuery, setSearchQuery] = useState('')
+    const [selectedMessage, setSelectedMessage] = useState(null)
     return (
         <div>
             <div className='flex flex-col gap-4 p-5 shadow-sm justify-between'>
@@ -38,7 +42,19 @@ export default function Home() {
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className='w-full rounded-lg border h-10 box-border py-3 pl-12 pr-4 text-sm ring-gray-400 focus:outline-none focus:border-0 focus:ring-2 focus:ring-blue-400'
                     />
-                    <div></div>
+                </div>
+            </div>
+
+            <div className='flex h-[calc(100vh-120px)]'>
+                <div className='w-1/3 border-r'>
+                    <MessageList
+                        messages={messages}
+                        onSelect={setSelectedMessage}
+                    />
+                </div>
+
+                <div className='flex-1'>
+                    <MessageDetail message={selectedMessage} />
                 </div>
             </div>
         </div>
